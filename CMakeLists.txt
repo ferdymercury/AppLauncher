@@ -455,18 +455,6 @@ configure_package_config_file(
     NO_CHECK_REQUIRED_COMPONENTS_MACRO
     )
 
-# Add this right after CTKAppLauncherBase is defined
-set_target_properties(CTKAppLauncherBase PROPERTIES
-  CXX_VISIBILITY_PRESET default
-  VISIBILITY_INLINES_HIDDEN OFF
-)
-
-# Add this right after CTKAppLauncherLib is defined
-set_target_properties(CTKAppLauncherLib PROPERTIES
-  CXX_VISIBILITY_PRESET default
-  VISIBILITY_INLINES_HIDDEN OFF
-)
-
 # Install 'CTKAppLauncherConfig.cmake'
 install(
   FILES ${launcher_install_config}
