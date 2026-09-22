@@ -56,12 +56,6 @@ ctkMacroBuildLib(
 # Export targets for build tree
 set_property(GLOBAL APPEND PROPERTY CTKAppLauncherLib_TARGETS CTKAppLauncherLib)
 
-set_target_properties(CTKAppLauncherLib PROPERTIES
-  WINDOWS_EXPORT_ALL_SYMBOLS ON
-  CMAKE_CXX_VISIBILITY_PRESET default
-  CMAKE_VISIBILITY_INLINES_HIDDEN OFF
-)
-
 # Export targets for install tree
 if(CTK_BUILD_SHARED_LIBS OR CTKAppLauncher_INSTALL_LauncherLibrary)
   install(TARGETS CTKAppLauncherLib
