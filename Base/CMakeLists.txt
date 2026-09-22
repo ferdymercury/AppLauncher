@@ -49,7 +49,7 @@ ctkMacroBuildLib(
   MOC_SRCS ${KIT_MOC_SRCS}
   TARGET_LIBRARIES ${KIT_target_libraries}
   RESOURCES ${KIT_resources}
-  LIBRARY_TYPE "SHARED"
+  LIBRARY_TYPE ""
   LABEL ctkAppLauncher
   )
 
@@ -105,7 +105,7 @@ ctkMacroBuildLib(
   MOC_SRCS ${KIT_MOC_SRCS}
   TARGET_LIBRARIES ${KIT_target_libraries}
   RESOURCES ${KIT_resources}
-  LIBRARY_TYPE "SHARED"
+  LIBRARY_TYPE ""
   LABEL ctkAppLauncher
   )
 
