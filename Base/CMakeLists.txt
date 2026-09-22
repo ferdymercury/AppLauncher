@@ -42,18 +42,25 @@ set(KIT_target_libraries
 
 ctkMacroBuildLib(
   NAME CTKAppLauncherLib
+  EXPORT_DIRECTIVE CTK_BASE_EXPORT
   INCLUDE_DIRECTORIES ${KIT_include_directories}
   INSTALL_INCLUDE_DIRECTORIES "${CTK_INSTALL_INCLUDE_DIR}"
   SRCS ${KIT_SRCS}
   MOC_SRCS ${KIT_MOC_SRCS}
   TARGET_LIBRARIES ${KIT_target_libraries}
   RESOURCES ${KIT_resources}
-  LIBRARY_TYPE "STATIC"
+  LIBRARY_TYPE "SHARED"
   LABEL ctkAppLauncher
   )
 
 # Export targets for build tree
 set_property(GLOBAL APPEND PROPERTY CTKAppLauncherLib_TARGETS CTKAppLauncherLib)
+
+set_target_properties(CTKAppLauncherLib PROPERTIES
+  WINDOWS_EXPORT_ALL_SYMBOLS ON
+  CMAKE_CXX_VISIBILITY_PRESET default
+  CMAKE_VISIBILITY_INLINES_HIDDEN OFF
+)
 
 # Export targets for install tree
 if(CTK_BUILD_SHARED_LIBS OR CTKAppLauncher_INSTALL_LauncherLibrary)
@@ -97,13 +104,14 @@ set(KIT_target_libraries
 
 ctkMacroBuildLib(
   NAME ${PROJECT_NAME}
+  EXPORT_DIRECTIVE CTK_LAUNCHER_EXPORT
   INCLUDE_DIRECTORIES ${KIT_include_directories}
   INSTALL_INCLUDE_DIRECTORIES "${CTK_INSTALL_INCLUDE_DIR}"
   SRCS ${KIT_SRCS}
   MOC_SRCS ${KIT_MOC_SRCS}
   TARGET_LIBRARIES ${KIT_target_libraries}
   RESOURCES ${KIT_resources}
-  LIBRARY_TYPE "STATIC"
+  LIBRARY_TYPE "SHARED"
   LABEL ctkAppLauncher
   )
 

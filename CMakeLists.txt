@@ -26,6 +26,8 @@ project(CTKAppLauncher)
 #-----------------------------------------------------------------------------
 option(CTKAppLauncher_INSTALL_LauncherLibrary "Install CTKApplauncher launcher library" OFF)
 
+set(CTK_SOURCE_DIR ${CMAKE_SOURCE_DIR})
+
 #-----------------------------------------------------------------------------
 # Set a default build type if none was specified
 #
@@ -452,6 +454,18 @@ configure_package_config_file(
     PATH_VARS BIN_DIR_CONFIG CMAKE_DIR_CONFIG CONFIG_DIR_CONFIG SETTINGS_TEMPLATE_CONFIG
     NO_CHECK_REQUIRED_COMPONENTS_MACRO
     )
+
+# Add this right after CTKAppLauncherBase is defined
+set_target_properties(CTKAppLauncherBase PROPERTIES
+  CXX_VISIBILITY_PRESET default
+  VISIBILITY_INLINES_HIDDEN OFF
+)
+
+# Add this right after CTKAppLauncherLib is defined
+set_target_properties(CTKAppLauncherLib PROPERTIES
+  CXX_VISIBILITY_PRESET default
+  VISIBILITY_INLINES_HIDDEN OFF
+)
 
 # Install 'CTKAppLauncherConfig.cmake'
 install(
